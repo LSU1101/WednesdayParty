@@ -78,7 +78,7 @@ class Game{
         int owner = 0; //owner를 정수 0으로 설정, 초기 owner가 human
 
         while(true){
-            players[owner].next();          //
+            players[owner].next();          //owner 먼저
             players[(owner*-1)+1].next();  //owner가 0이면 1, 1이면 0
             System.out.println(players[0].getName() +" : "+ players[0].getBet()+", "+players[1].getName() +" : "+ players[1].getBet()+",");
             System.out.println();
