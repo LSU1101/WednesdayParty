@@ -33,7 +33,6 @@ class Human extends Player {
 
             // 올바르지 않게 입력했을 경우 실행
             System.out.println("묵, 찌, 빠 중에서 입력하세요.");
-            // scanner.next(); // 입력한 문자 삭제
         }
     }
 }
@@ -78,7 +77,7 @@ class Game {
         players[0] = new Human(human);
         players[1] = new Computer(computer);
 
-        System.out.println("두 명의 선수를 생성 완료하였습니다.");
+        System.out.println(players.length + " 명의 선수를 생성 완료하였습니다.\n");
     }
 
     private void gamePlay() {
@@ -101,7 +100,9 @@ class Game {
             } else if (players[0].getBet().equals(players[1].getBet()) && owner == 1) { // owner가 1일 때 같은 것을 냈을 경우 1이 승리
                 System.out.println(players[1].getName() + "이(가) 이겼습니다!");
                 break;
-            } else if (players[owner].getBet().equals("묵") && players[(owner * -1) + 1].getBet().equals("빠") || players[owner].getBet().equals("찌") && players[(owner * -1) + 1].getBet().equals("묵") || players[owner].getBet().equals("빠") && players[(owner * -1) + 1].getBet().equals("찌")) { // 서로 다른 것을 내고 owner가 가위바위보에서 졌을 경우 오너를 변경
+            } else if (players[owner].getBet().equals("묵") && players[(owner * -1) + 1].getBet().equals("빠") ||
+                    players[owner].getBet().equals("찌") && players[(owner * -1) + 1].getBet().equals("묵") ||
+                    players[owner].getBet().equals("빠") && players[(owner * -1) + 1].getBet().equals("찌")) { // 서로 다른 것을 내고 owner가 가위바위보에서 졌을 경우 오너를 변경
                 owner = owner * -1 + 1;
             }
         }
